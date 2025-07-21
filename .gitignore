@@ -1,0 +1,71 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Environment variables and secrets
+.env
+*.env
+
+# Logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# MacOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Cache and pip stuff
+*.egg-info/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+__pypackages__/
+
+# pytest
+.cache/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Model files and embeddings
+*.bin
+*.pkl
+*.pt
+*.onnx
+*.h5
+*.tflite
+chroma/
+
+# LangChain or vector stores
+index/
+db/
+vectorstore/
+
+# Output or uploads
+uploads/
+outputs/
+*.csv
+*.json
+*.xlsx
+
+# Node (if any frontend part)
+node_modules/
+package-lock.json
