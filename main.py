@@ -15,20 +15,24 @@ extractor=Extractor()
 parser=Parser(source_dir)
 saveResult=SaveResult(output_json)
 
-generateSummary=GenerateSummary(extractor,parser)
-results = generateSummary.generate_code_summary(chunk_size)
+try:
+    generateSummary=GenerateSummary(extractor,parser)
+    results = generateSummary.generate_code_summary(chunk_size)
 
 
-# Check if results list is not empty and doesn't contain only None
-valid_results = [r for r in results if r is not None]
+    # Check if results list is not empty and doesn't contain only None
+    valid_results = [r for r in results if r is not None]
 
-if valid_results:
-    saveResult.save_to_json(valid_results)
-    print(f"Saved {len(valid_results)} results to {output_json}")
-    logging.info("File saved successfully")
-else:
-    print("No valid results to save.")
-    logging.error("No valid results to save.")
+    if valid_results:
+        saveResult.save_to_json(valid_results)
+        print(f"Saved {len(valid_results)} results to {output_json}")
+        logging.info("File saved successfully")
+    else:
+        print("No valid results to save.")
+        logging.error("No valid results to save.")
+    
+except Exception as ex:
+    logging.error(f"No valid results to save. {repr(ex)}")
 
 
 
