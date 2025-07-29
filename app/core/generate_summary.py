@@ -13,7 +13,7 @@ class GenerateSummary:
         results = []   
         
         for file, content in all_code.items():
-            chunks = helper.chunk_code(content, chunk_size)       
+            chunks = helper.token_chunk_code(content, chunk_size)       
             for chunk in chunks:
                 try:     
                     # analyse code chunk                      
