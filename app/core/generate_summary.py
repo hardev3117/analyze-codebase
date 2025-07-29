@@ -28,8 +28,16 @@ class GenerateSummary:
                 
                 except Exception as e:
                     print(f"Error in {file}: {e}")
+
+            
+            #print(results)        
+            final_json_str = self.extractor.analyze_code_chunk(file, results)     
+                   
+            # Ensure it's valid JSON: strip whitespace and check
+            final_result =final_json_str.strip()    
+            #print(final_result)
         
-        return results
+        return final_result
 
 
 

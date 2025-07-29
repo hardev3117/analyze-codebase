@@ -36,9 +36,16 @@ class Extractor:
         #llm = Ollama(model=MODEL_NAME, temperature=0)  # or any local model you've installed
 
         prompt = PromptTemplate.from_template(TEMPLATE)
-        chain = LLMChain(prompt=prompt, llm=llm)
+        #chain = LLMChain(prompt=prompt, llm=llm)
+        #chain = prompt | llm
+        # Modern chaining
+        chain = prompt | llm
 
-        
-        result = chain.invoke({"file_name": file, "code_chunk": chunk})
-        output_text = result['text']  # Extract text from dict
-        return output_text.replace("```json", "").replace("```", "")
+        # Invoke with input
+        response = chain.invoke({"file_name": file, "code_chunk": chunk})
+        output_text =response.content
+        #print(output_text)
+        #result = chain.invoke({"file_name": file, "code_chunk": chunk})
+        #output_text = result['text']  # Extract text from dict
+        #return output_text.replace("```json", "").replace("```", "")
+        return output_text
