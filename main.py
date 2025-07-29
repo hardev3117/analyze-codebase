@@ -19,10 +19,10 @@ try:
     generateSummary=GenerateSummary(extractor,parser)
     results = generateSummary.generate_code_summary(chunk_size)
 
-
     # Check if results list is not empty and doesn't contain only None
-    valid_results = [r for r in results if r is not None]
-
+    valid_results =results
+    #valid_results = [r for r in results if r is not None]
+    #print(valid_results)
     if valid_results:
         saveResult.save_to_json(valid_results)
         print(f"Saved {len(valid_results)} results to {output_json}")
